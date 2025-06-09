@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Physics Calculator</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      text-align: center;
+      padding: 50px;
+      margin: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 24px;
+      margin: 10px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 60%;
+      max-width: 300px;
+    }
+
+    .footer {
+      margin-top: 80px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    .brand {
+      font-family: 'Georgia', serif;
+      font-size: 1.5em;
+      font-style: italic;
+      color: #ffdd57;
+    }
+
+    .small-text {
+      font-size: 0.85em;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: Name Entry -->
+  <div id="page1">
+    <h1>Welcome to the Physics Calculator</h1>
+    <p>Please enter your name to begin:</p>
+    <input type="text" id="nameInput" placeholder="Enter your name"/>
+    <br><br>
+    <button onclick="goToPage2()">Continue</button>
+    <!-- <img src="cars.jpeg"> -->
+
+    <div class="footer">
+      <div class="brand">Powered by Physics Works</div>
+      <div class="small-text">This tool is for Grade 12 curriculum only</div>
+      <div class="small-text">Chapter 6, 7, 8 & 9</div>
+    </div>
+  </div>
+
+  <!-- PAGE 2: Main Menu -->
+  <div id="page2" class="hidden">
+    <h1 id="greeting"></h1>
+    <p>Select an option:</p>
+    <button onclick="goToPage3()">Calculator</button>
+    <br>
+    <button onclick="window.open('https://codehs.com/sandbox/id/final-cptquiz-anthony-5O58E1/run', '_blank')">Practice Quiz</button>
+  </div>
+
+  <!-- PAGE 3: Chapter Options -->
+  <div id="page3" class="hidden">
+    <h1>Select Chapter Calculator</h1>
+    <button onclick="window.open('https://codehs.com/sandbox/id/final-cpt6-anthony-B0AXXC/run', '_blank')">Chapter 6 Calculator</button>
+    <button onclick="window.open('https://codehs.com/sandbox/id/final-cpt7-anthony-nHNvT0/run', '_blank')">Chapter 7 Calculator</button>
+    <button onclick="window.open('https://codehs.com/sandbox/id/final-cpt89-anthony-QPUCyk/run', '_blank')">Chapter 8/9 Calculator</button>
+  </div>
+
+  <script>
+    function goToPage2() {
+      const name = document.getElementById('nameInput').value;
+      if (name.trim() !== '') {
+        document.getElementById('page1').classList.add('hidden');
+        document.getElementById('page2').classList.remove('hidden');
+        document.getElementById('greeting').innerText = `Hello, ${name}!`;
+      } else {
+        alert('Please enter your name first.');
+      }
+    }
+
+    function goToPage3() {
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page3').classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
